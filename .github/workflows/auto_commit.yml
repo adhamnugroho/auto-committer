@@ -22,6 +22,7 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
 
+
       - name: Configure git for GPG
         run: |
           git config --global user.signingkey 75DAEEFD3D85434E

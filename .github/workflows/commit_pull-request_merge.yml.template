@@ -15,8 +15,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name 'themuuln'
-          git config --global user.email 'zerone.offical@gmail.com'
+          git config --global user.name 'adhamnugroho'
+          git config --global user.email 'adhamnugroho9@gmail.com'
           git config pull.rebase false  # Disable pull rebase to avoid potential conflicts.
 
       - name: Generate Branch Name

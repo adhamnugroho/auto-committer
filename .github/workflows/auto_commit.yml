@@ -15,8 +15,8 @@ jobs:
 
       - name: Setup GPG
         run: |
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-          echo -e "5\ny\n" | gpg --batch --yes --passphrase $GPG_PASSPHRASE --pinentry-mode loopback --command-fd 0 --edit-key 75DAEEFD3D85434E trust quit
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import --pinentry-mode loopback
+          echo -e "5\ny\n" | gpg --command-fd 0 --batch --yes --passphrase $GPG_PASSPHRASE --edit-key 75DAEEFD3D85434E trust quit
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
@@ -42,7 +42,7 @@ jobs:
           signoff: true
 
       - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+        uses: ad-m/github-push-action@master
         with:
           branch: daily-contribution
           github_token: ${{ secrets.GH_TOKEN }}

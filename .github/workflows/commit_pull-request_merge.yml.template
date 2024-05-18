@@ -2,7 +2,7 @@ name: Auto Commit and Merge
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Schedule the workflow to run every 5 minutes.
+    - cron: '* * * * *'  # Schedule the workflow to run every 5 minutes.
 
 jobs:
   auto_commit_and_merge:

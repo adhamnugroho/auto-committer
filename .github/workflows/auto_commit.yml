@@ -16,10 +16,11 @@ jobs:
       - name: Setup GPG
         run: |
           echo "$GPG_PRIVATE_KEY" | gpg --batch --import --pinentry-mode loopback
-          echo "$GPG_PASSPHRASE" | gpg --batch --yes --passphrase-fd 0 --pinentry-mode loopback --edit-key 75DAEEFD3D85434E trust quit
+          echo "$GPG_PASSPHRASE" | gpg --batch --yes --passphrase-fd 0 --pinentry-mode loopback --command-fd 0 --trust-model always --edit-key 75DAEEFD3D85434E trust quit
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
 
       - name: Configure git for GPG
         run: |
